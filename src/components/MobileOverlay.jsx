@@ -2,34 +2,25 @@ import { useState } from "react";
 import { Bs1Circle, Bs2Circle, Bs3Circle } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import CheckOut from "./CheckOut";
-// import Items from './ItemsCard';
-import { FaArrowRightLong } from "react-icons/fa6";
-import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import OrderSumary from "./OrderSummary";
+import Page1 from "./Page1";
+import OrderSummary from "./OrderSummary";
 
 const MobileOverlay = ({ onClose }) => {
   const [closeOverlay, setCloseOverlay] = useState(false);
 
-  // const handleCheckOut = () => {
-  //   setCloseOverlay(true);
-  // };
-
   const handleCloseOverlay = () => {
     setCloseOverlay(false);
-    onClose(); // Call the onClose callback to notify the parent component
+    onClose();
   };
 
-  // `value` will be the parsed phone number in E.164 format.
-  // Example: "+12133734253".
   const [value, setValue] = useState();
-
   return (
     <div
       className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-30 z-10 flex items-center justify-center  space-x-2`}
     >
       {/* Overlay */}
-      <div className="bg-gray-100 rounded-2xl  space-x-4 lg:w-[65%] ss:w-[85%] md:w-[90%] flex">
+      <div className="bg-gray-100 rounded-2xl space-x-4 lg:w-[65%] ss:w-[85%] md:w-[90%] flex">
         <div className="p-4 bg-white rounded-l-2xl w-[65%] ">
           <div className="justify-between p-3 border-b border-gray-200">
             <div className="grid grid-cols-2">
@@ -55,38 +46,25 @@ const MobileOverlay = ({ onClose }) => {
                 <Bs3Circle style={{ width: "12%", height: "100%" }} />
                 <p className="text-s">Payment</p>
               </div>
-            </div>
-          </div>
-          <div className="grid grid-row-3  justify-center pt-16 pb-4">
-            <div className="pb-6 flex  justify-center">
-              <h1 className="text-ex ">Enter Mobile Number</h1>
-            </div>
-            <div>
-              <div className="border border-black p-3 rounded-xl">
-                <PhoneInput
-                  placeholder="Enter phone number"
-                  value={value}
-                  onChange={setValue}
-                  className="flex "
-                />
+
+              <div className="col-span-3 flex items-center justify-center pt-16 pb-4">
+                <Page1 />
               </div>
-              <input type="checkbox" id="orderUpdatesCheckbox" />
-              <label for="orderUpdatesCheckbox" className="text-sm pl-1">
-                Notify me for orders updates & offers
-              </label>
-              <div className="pt-6">
-                <buttton className="flex text-sm bg-black cursor-pointer border rounded-md justify-center p-4 ">
-                  <p className="text-white text-base">Continue </p>
-                  <div className="pt-1 pl-2">
-                    <FaArrowRightLong className="text-white" />
-                  </div>
-                </buttton>
-              </div>
+
             </div>
+
             <p className="text-smmm flex justify-center pt-2 text-gray-400">
               By proceeding, I accept that I have read and
               <br />
-              understood the Gokwik's Privacy Policy and T&C
+              understood the Digi's
+              <a href="/privacy-policy" className="underline " target="_blank" rel="noopener noreferrer">
+                Privacy Policy
+              </a>
+              {' '}
+              and
+              <a href="/terms-and-conditions" className="underline" target="_blank" rel="noopener noreferrer">
+                T&amp;C
+              </a>
             </p>
           </div>
           <footer className="grid grid-cols-3 items-center ">
@@ -121,9 +99,8 @@ const MobileOverlay = ({ onClose }) => {
             </div>
           </footer>
         </div>
-
         <div className="flex">
-          <OrderSumary />
+          <OrderSummary/>
         </div>
         <div
           className="h-[10%] overflow z-20 bg-gray-100 p-2 rounded-3xl"
@@ -135,12 +112,9 @@ const MobileOverlay = ({ onClose }) => {
           />
         </div>
       </div>
-
       {/* <Items /> */}
-
-      {closeOverlay && <CheckOut onClose={() => setCloseOverlay(false)} />}
+      {closeOverlay && <CheckOut onClick={() => setCloseOverlay(false)} />}
     </div>
   );
 };
-
 export default MobileOverlay;
