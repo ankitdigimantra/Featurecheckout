@@ -3,20 +3,21 @@ import { Bs1Circle, Bs2Circle, Bs3Circle } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import CheckOut from "./CheckOut";
 import "react-phone-number-input/style.css";
-import Page1 from "./Page1";
+import Login from "./Login";
 import OrderSummary from "./OrderSummary";
 import { Button, message, Steps } from 'antd';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import Address from './Address';
 
 
 const steps = [
   {
     title: 'Mobile',
-    content: <Page1/>,
+    content: <Login/>,
   },
   {
     title: 'Address',
-    content: 'Second-content',
+    content: <Address/>,
   },
   {
     title: 'Payment',
@@ -63,9 +64,9 @@ const MobileOverlay = ({ onClose }) => {
             <div className="grid grid-cols-2">
               <div>
                 <img
-                  src="https://digimantralabs.com/wp-content/uploads/2023/06/dml-logo1.png"
+                  src="https://foxtale.in/cdn/shop/files/0_2cc0ff3d-2f61-4eb0-9652-66290a12db5b.png?v=1648741806&width=125"
                   alt="logo"
-                  style={{ width: "40%", height: "100%" }}
+                  style={{ width: "30%", height: "100%" }}
                   className="h-12 cursor-pointer top-3 bottom-3"
                 />
               </div>
