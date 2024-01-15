@@ -25,7 +25,6 @@ const Login = () => {
               onChange={handlePhoneChange}
               className={`flex ${isValid ? '' : 'invalid-input'}`}
               style={{ outline: 'none' }}
-              
             />
           </div>
           <input type="checkbox" id="orderUpdatesCheckbox" />
