@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import { Bs1Circle, Bs2Circle, Bs3Circle } from 'react-icons/bs'; 
 import { FaArrowRightLong } from "react-icons/fa6";
 import PhoneInput from "react-phone-number-input";
+import { useRouter } from 'next/navigation';
 
 const Page1 = () => {
+const router = useRouter();
   const [value, setValue] = useState(); 
+  const handleContinue = () => {
+    router.push('/Page2');
+  };
 
   return (
     <div>
@@ -26,7 +31,7 @@ const Page1 = () => {
             Notify me for orders updates & offers
           </label>
           <div className="pt-6">
-            <button className="flex text-sm bg-black cursor-pointer border rounded-md justify-center p-4">
+            <button className="flex text-sm bg-black cursor-pointer border rounded-md justify-center p-4" onClick={handleContinue}>
               <p className="text-white text-base">Continue </p>
               <div className="pt-1 pl-2">
                 <FaArrowRightLong className="text-white" />
