@@ -1,24 +1,72 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-
-const Page1 = () => {
-  const router = useRouter();
-
-  const handleContinue = () => {
-    router.push('/page2');
+import React, { useState } from 'react';
+import { Button, message, Steps, theme } from 'antd';
+const steps = [
+  {
+    title: 'First',
+    content: 'First-content',
+  },
+  {
+    title: 'Second',
+    content: 'Second-content',
+  },
+  {
+    title: 'Last',
+    content: 'Last-content',
+  },
+];
+const App = () => {
+  const { token } = theme.useToken();
+  const [current, setCurrent] = useState(0);
+  const next = () => {
+    setCurrent(current + 1);
   };
-
+  const prev = () => {
+    setCurrent(current - 1);
+  };
+  const items = steps.map((item) => ({
+    key: item.title,
+    title: item.title,
+  }));
+  const contentStyle = {
+    lineHeight: '260px',
+    textAlign: 'center',
+    color: token.colorTextTertiary,
+    backgroundColor: token.colorFillAlter,
+    borderRadius: token.borderRadiusLG,
+    border: `1px dashed ${token.colorBorder}`,
+    marginTop: 16,
+  };
   return (
-    <div>
-      <h1>Page 1</h1>
-      <button className="flex text-sm bg-black cursor-pointer border rounded-md justify-center p-4" onClick={handleContinue}>
-        <p className="text-white text-base">Continue </p>
-        <div className="pt-1 pl-2">
-          <FaArrowRightLong className="text-white" />
-        </div>
-      </button>
-    </div>
+    <>
+      <Steps current={current} items={items} />
+      <div style={contentStyle}>{steps[current].content}</div>
+      <div
+        style={{
+          marginTop: 24,
+        }}
+      >
+        {current < steps.length - 1 && (
+          <Button type="primary" onClick={() => next()}>
+            Next
+          </Button>
+        )}
+        {current === steps.length - 1 && (
+          <Button type="primary" onClick={() => message.success('Processing complete!')}>
+            Done
+          </Button>
+        )}
+        {current > 0 && (
+          <Button
+            style={{
+              margin: '0 8px',
+            }}
+            onClick={() => prev()}
+          >
+            Previous
+          </Button>
+        )}
+      </div>
+    </>
   );
 };
-
-export default Page1;
+export default App;

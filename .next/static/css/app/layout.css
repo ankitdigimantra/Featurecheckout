@@ -588,8 +588,29 @@ video {
 .z-20 {
   z-index: 20;
 }
-.col-span-3 {
-  grid-column: span 3 / span 3;
+.m-1 {
+  margin: 0.25rem;
+}
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ml-10 {
+  margin-left: 2.5rem;
+}
+.ml-32 {
+  margin-left: 8rem;
+}
+.ml-96 {
+  margin-left: 24rem;
 }
 .flex {
   display: flex;
@@ -753,6 +774,46 @@ video {
 .p-4 {
   padding: 1rem;
 }
+.p-5 {
+  padding: 1.25rem;
+}
+.p-10 {
+  padding: 2.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.p-7 {
+  padding: 1.75rem;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.px-32 {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+.px-28 {
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -812,6 +873,15 @@ video {
 }
 .text-smmmm {
   font-size: 0.5rem;
+}
+.text-3xl {
+  font-size: 1.953rem;
+}
+.text-2xl {
+  font-size: 1.563rem;
+}
+.text-xl {
+  font-size: 1.25rem;
 }
 .font-extrabold {
   font-weight: 800;

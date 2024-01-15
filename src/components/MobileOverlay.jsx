@@ -6,6 +6,23 @@ import "react-phone-number-input/style.css";
 import Page1 from "./Page1";
 import OrderSummary from "./OrderSummary";
 import { Button, message, Steps } from 'antd';
+import { FaArrowRightLong } from 'react-icons/fa6';
+
+
+const steps = [
+  {
+    title: 'Mobile',
+    content: <Page1/>,
+  },
+  {
+    title: 'Address',
+    content: 'Second-content',
+  },
+  {
+    title: 'Payment',
+    content: 'Last-content',
+  },
+];
 
 const MobileOverlay = ({ onClose }) => {
   const [current, setCurrent] = useState(0);
@@ -18,20 +35,15 @@ const MobileOverlay = ({ onClose }) => {
     setCurrent(current - 1);
   };
 
-  const steps = [
-    {
-      title: 'First',
-      content: <Page1/>,
-    },
-    {
-      title: 'Second',
-      content: 'Second-content',
-    },
-    {
-      title: 'Last',
-      content: 'Last-content',
-    },
-  ];
+  const items = steps.map((item) => ({
+    key: item.title,
+    title: item.title,
+  }));
+
+  const contentStyle = {
+    textAlign: 'center',
+    marginTop: 16,
+  };
 
   const [closeOverlay, setCloseOverlay] = useState(false);
 
@@ -58,48 +70,37 @@ const MobileOverlay = ({ onClose }) => {
                 />
               </div>
             </div>
-            <div>
-              <Steps current={current} items={steps} />
-              <div style={{ marginTop: 24 }}>
-                {current < steps.length - 1 && (
-                  <Button type="primary" onClick={() => next()}>
-                    Next
-                  </Button>
-                )}
-                
-                {current === steps.length - 1 && (
-                  <Button type="primary" onClick={() => message.success('Processing complete!')}>
-                    Done
-                  </Button>
-                )}
-                {current > 0 && (
-                  <Button
-                    style={{
-                      margin: '0 8px',
-                    }}
-                    onClick={() => prev()}
-                  >
-                    Previous
-                  </Button>
-                )}
-              </div>
-              <div className="grid grid-cols-3  pt-4">
-                <div className="flex items-center gap-2">
-                  <Bs1Circle style={{ width: "12%", height: "100%" }} />
-                  <p className="text-s">Mobile</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Bs2Circle style={{ width: "12%", height: "100%" }} />
-                  <p className="text-s">Address</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Bs3Circle style={{ width: "12%", height: "100%" }} />
-                  <p className="text-s">Payment</p>
-                </div>
-
-                <div className="col-span-3 flex items-center justify-center pt-16 pb-4">
-                  <Page1 />
-                </div>
+              <div className=" pt-4">
+      <Steps current={current} items={items} />
+      <div style={contentStyle}>{steps[current].content}</div>
+      <div
+        style={{
+          marginTop: 24,
+        }}
+      >
+        {current < steps.length - 1 && (
+          <Button type="primary" onClick={() => next()} 
+          className='flex text-base bg-black cursor-pointer border items-center rounded-md justify-center py-7 px-28  mx-auto'
+          >
+            Continue  <FaArrowRightLong className="text-white m-1" />
+          </Button>
+        )}
+        {current === steps.length - 1 && (
+          <Button type="primary" onClick={() => message.success('Processing complete!')}>
+            Done
+          </Button>
+        )}
+        {current > 0 && (
+          <Button
+            style={{
+              margin: '0 8px',
+            }}
+            onClick={() => prev()}
+          >
+            Previous
+          </Button>
+        )}
+      </div>
               </div>
 
               <p className="text-smmm flex justify-center pt-2 text-gray-400">
@@ -163,7 +164,7 @@ const MobileOverlay = ({ onClose }) => {
         </div>
         {closeOverlay && <CheckOut onClick={() => setCloseOverlay(false)} />}
       </div>
-    </div>
+  
   );
 };
 
