@@ -12,8 +12,6 @@ export default function Home() {
   return (
     <div className="">
       <CheckOut />
-      
-      <MobileOverlay onClose={handleClose}/>
     </div>
   );
 }

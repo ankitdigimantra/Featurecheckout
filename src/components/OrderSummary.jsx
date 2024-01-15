@@ -3,7 +3,6 @@ import { useState } from "react";
 import { BsCart3 } from "react-icons/bs";
 import { FaAngleUp } from "react-icons/fa6";
 import { MdKeyboardArrowRight } from "react-icons/md";
-
 import { fetchOptions, phoneUrl } from "../app/constant";
 import CheckOut from "./CheckOut";
 import ItemsCard from "../components/Itemscard";
