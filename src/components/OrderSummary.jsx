@@ -3,26 +3,40 @@ import { useState } from "react";
 import { BsCart3 } from "react-icons/bs";
 import { FaAngleUp } from "react-icons/fa6";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { fetchOptions, phoneUrl } from "../app/constant";
+import { useHistory } from 'react-router-dom';
+
+import { fetchOptions } from "../app/constant";
 import CheckOut from "./CheckOut";
 import ItemsCard from "../components/Itemscard";
+import ViewCoupons from "./ViewCoupons";
 
 const OrderSummary = ({ onClose }) => {
   const [closeOverlay, setCloseOverlay] = useState(false);
   const [subtotal, setSubtotal] = useState(0);
   const [shipping, setShipping] = useState(0);
+  const [showcoupon, setShowCoupon] = useState(false);
+  const [coupon, setCoupon] = useState(false); // Add this line
 
   const handleCloseOverlay = () => {
     setCloseOverlay(false);
     onClose(); // Call the onClose callback to notify the parent component
   };
 
-  const { data, error, loading } = useFetch(phoneUrl, fetchOptions);
+  const handleCheckOut = () => {
+    console.log("set coup")
+    setShowCoupon(true);
+  };
+
+  const { data, error, loading } = useFetch("", fetchOptions);
   console.log(data);
 
+
   return (
-    <div className="pb-6 pt-6 pr-4 ">
-      <div className="bg-white rounded-xl p-2 ">
+    <div className="pb-6 pt-6 pr-4 w-[80%]">
+      {showcoupon ? <ViewCoupons onClose={() => setShowCoupon(false)} />
+    :
+    <>
+          <div className="bg-white rounded-xl p-2 ">
         <div className=" rounded-md p-1 cursor-pointer pb-4">
           <div className="flex items-center gap-2  ">
             <div>
@@ -64,17 +78,22 @@ const OrderSummary = ({ onClose }) => {
         </div>
       </div>
 
-      <div className="pt-4">
+      <div className="pt-4 w-[70%]">
         <div className="bg-white rounded-xl p-3 ">
-          <buttton className="grid grid-cols-2 text-smm cursor-pointer border-2 border-dotted border-gray-500 rounded-3xl  p-2">
+          <buttton className="grid grid-cols-2 text-smm cursor-pointer border-2 border-dotted border-gray-500 rounded-3xl  p-2" onClick={handleCheckOut}>
             <p>3 coupons available</p>
             <p className="font-semibold text-blue-900 flex justify-end">
-              View Coupons{" "}
+              View Coupons
               <MdKeyboardArrowRight className="flex top-2 items-center justify-end" />
             </p>
           </buttton>
         </div>
       </div>
+    </>  
+    }
+
+
+      
     </div>
   );
 };

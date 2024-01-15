@@ -104,9 +104,9 @@ const ItemsCard = ({ setSubtotal }) => {
                     className="h-1 cursor-pointer top-3 bottom-3"
                   />
                 </div>
-                <div className="text-smm">
+                <div className="text-smm p-1">
                   <p>{item.title}</p>
-                  <p>Price: {item.price}</p>
+                  <p>Price: ₹ {item.price}</p>
                 </div>
               </div>
             );

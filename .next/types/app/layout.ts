@@ -1,4 +1,4 @@
-// File: /home/dml-dhruva/Desktop/ankit/ShopifyApp/src/app/layout.js
+// File: /home/dml-ankit/Videos/shopify/ShopifyApp/src/app/layout.js
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

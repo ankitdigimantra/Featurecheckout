@@ -588,9 +588,6 @@ video {
 .z-20 {
   z-index: 20;
 }
-.col-span-3 {
-  grid-column: span 3 / span 3;
-}
 .flex {
   display: flex;
 }
@@ -619,11 +616,17 @@ video {
 .w-3 {
   width: 0.75rem;
 }
-.w-\[65\%\] {
-  width: 65%;
-}
 .w-\[7\%\] {
   width: 7%;
+}
+.w-\[70\%\] {
+  width: 70%;
+}
+.w-\[80\%\] {
+  width: 80%;
+}
+.w-\[90\%\] {
+  width: 90%;
 }
 .w-full {
   width: 100%;
@@ -643,6 +646,9 @@ video {
 .items-center {
   align-items: center;
 }
+.justify-start {
+  justify-content: flex-start;
+}
 .justify-end {
   justify-content: flex-end;
 }
@@ -657,6 +663,9 @@ video {
 }
 .gap-2 {
   gap: 0.5rem;
+}
+.gap-3 {
+  gap: 0.75rem;
 }
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -676,6 +685,9 @@ video {
 }
 .rounded-3xl {
   border-radius: 1.5rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 .rounded-md {
   border-radius: 0.375rem;
@@ -741,6 +753,9 @@ video {
 .bg-opacity-30 {
   --tw-bg-opacity: 0.3;
 }
+.p-0 {
+  padding: 0px;
+}
 .p-1 {
   padding: 0.25rem;
 }
@@ -755,6 +770,9 @@ video {
 }
 .pb-1 {
   padding-bottom: 0.25rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 .pb-4 {
   padding-bottom: 1rem;
@@ -792,6 +810,9 @@ video {
 .pt-6 {
   padding-top: 1.5rem;
 }
+.text-2xl {
+  font-size: 1.563rem;
+}
 .text-base {
   font-size: 1rem;
 }
@@ -819,6 +840,10 @@ video {
 .font-semibold {
   font-weight: 600;
 }
+.text-blue-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity));
+}
 .text-blue-900 {
   --tw-text-opacity: 1;
   color: rgb(30 58 138 / var(--tw-text-opacity));
@@ -827,12 +852,17 @@ video {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.underline {
-  text-decoration-line: underline;
 }
 
 /* :root {
@@ -861,22 +891,22 @@ body {
 
 @media (min-width: 768px) {
 
-  .md\:w-\[90\%\] {
-    width: 90%;
+  .md\:w-\[70\%\] {
+    width: 70%;
   }
 }
 
 @media (min-width: 940px) {
 
-  .ss\:w-\[85\%\] {
-    width: 85%;
+  .ss\:w-\[75\%\] {
+    width: 75%;
   }
 }
 
 @media (min-width: 1280px) {
 
-  .lg\:w-\[65\%\] {
-    width: 65%;
+  .lg\:w-\[60\%\] {
+    width: 60%;
   }
 }
 
